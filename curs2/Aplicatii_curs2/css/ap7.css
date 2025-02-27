@@ -1,0 +1,58 @@
+body {
+	background: #ECECEC;
+}
+
+
+.container {
+	max-width: 720px;
+	margin: 24px auto 48px auto;
+}
+
+h1 {
+	font-family: 'Montserrat', sans-serif;
+	text-transform: uppercase;
+}
+
+h2 {
+	font-family: 'Julius Sans One', sans-serif;
+	font-size: 2.5rem;
+}
+
+.row {
+	margin-top: 12px;
+}
+
+.column {
+	display: inline-block;
+	text-align: center;
+}
+
+figure {
+	overflow: hidden;
+}
+
+a p {
+	color: black;
+	margin-top: 8px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.column img {
+	display: block;
+	
+}
+
+/*Sepia*/
+.column#sepia img {
+	filter: sepia(100%);
+	transition: .3s ease-in;
+}
+.column#sepia:hover img {
+	
+	filter: sepia(0);
+}
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/ap4.css">
+</head>
+<body>
+  <div class="loader book" id="loader">
+    <figure class="page"></figure>
+    <figure class="page"></figure>
+    <figure class="page"></figure>
+    <h1>Răsfoiesc</h1>
+  </div>
+  <section id="main" class="continut">
+    <h2>Titlu de pagina</h2>
+  </section>
+
+  <script>
+    // Loader
+    window.addEventListener("load", function () {
+      setTimeout(function () {
+        console.log("page is fully loaded");
+
+        let loaderElement = document.getElementById("loader");
+        loaderElement.classList.add("continut");
+
+        let mainElement = document.getElementById("main");
+        mainElement.classList.remove("continut");
+
+      }, 3000);
+    });
+  </script>
+</body>
+</html>
