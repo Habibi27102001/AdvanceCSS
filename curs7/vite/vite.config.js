@@ -7,10 +7,10 @@ import fs from "fs-extra";
 
 // 1. Compilează EJS → HTML
 
-const head = ejs.render(fs.readFileSync("./src/templates/head.ejs", "utf8"));
+const head = ejs.render(fs.readFileSync("./src/templates/head.html", "utf8"));
 const top = ejs.render(fs.readFileSync("./src/templates/topbar.html", "utf8"));
 const banner = ejs.render(fs.readFileSync("./src/templates/banner.html", "utf8"));
-const header = ejs.render(fs.readFileSync("./src/templates/header.ejs", "utf8"));
+const header = ejs.render(fs.readFileSync("./src/templates/header.html", "utf8"));
 const sec1 = ejs.render(fs.readFileSync("./src/templates/sectiunea1.html", "utf8"));
 const sec2 = ejs.render(fs.readFileSync("./src/templates/sectiunea2.html", "utf8"));
 const sec3 = ejs.render(fs.readFileSync("./src/templates/sectiunea3.html", "utf8"));
@@ -18,14 +18,13 @@ const sec4 = ejs.render(fs.readFileSync("./src/templates/sectiunea4.html", "utf8
 const sec5 = ejs.render(fs.readFileSync("./src/templates/sectiunea5.html", "utf8"));
 const sec6 = ejs.render(fs.readFileSync("./src/templates/sectiunea6.html", "utf8"));
 const sec7 = ejs.render(fs.readFileSync("./src/templates/sectiunea7.html", "utf8"));
-const footer = ejs.render(fs.readFileSync("./src/templates/footer.ejs", "utf8"));
+const footer = ejs.render(fs.readFileSync("./src/templates/footer.html", "utf8"));
 
 export default defineConfig({
-    base: "./",
     plugins: [
         createHtmlPlugin({
             minify: false, // Minimizează HTML
-            template: './index.html?row',
+            template: './index.html',
             inject: {
                 data: {
                     head: head,
@@ -35,8 +34,8 @@ export default defineConfig({
                     sec1: sec1,
                     sec2: sec2,
                     sec3: sec3,
-                    sec4: sec4,
                     sec5: sec5,
+                    sec4: sec4,
                     sec6: sec6,
                     sec7: sec7,
                     footer: footer,
@@ -44,7 +43,7 @@ export default defineConfig({
                 tags: [
                     {
                         tag: 'script',
-                        attrs: { type: 'module', src: '/assets/js/main.js' },
+                        attrs: { type: 'module', src: '/src/assets/js/main.js' },
                         injectTo: 'body' // Injectează la sfârșitul <body>
                     }
                 ],
@@ -53,7 +52,7 @@ export default defineConfig({
         viteStaticCopy({
             targets: [
                 {
-                    src: 'assets/', // Folderul sursă
+                    src: './src/assets/', // Folderul sursă
                     dest: '' // Copiază direct în /dist/
                 }
             ]
@@ -68,7 +67,7 @@ export default defineConfig({
     css: {
         preprocessorOptions: {
             scss: {
-                additionalData: `@import "./src/assets/style.scss";`,
+                additionalData: `@import "./src/assets/scss/style.scss";`,
             },
         },
     },
